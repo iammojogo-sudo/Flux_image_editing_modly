@@ -66,8 +66,18 @@ Low VRAM needs `bitsandbytes` (installed during setup). If it didn't install, th
 
 ---
 
+## License
+
+This extension's code (`manifest.json`, `generator.py`, `setup.py`, `README.md`) is released under the **MIT License** — see [LICENSE](LICENSE). You and any end user are free to use, modify, and redistribute the code.
+
+The MIT License covers **only this wrapper code**. It does not cover the FLUX.1 Kontext [dev] model weights, which the extension downloads at runtime and does not include. Those weights are owned by Black Forest Labs and governed by the **FLUX.1 [dev] Non-Commercial License** ([link](https://huggingface.co/black-forest-labs/FLUX.1-Kontext-dev/blob/main/LICENSE.md)) and its Acceptable Use Policy. Downloading the model through this extension means accepting those terms.
+
+**Disclaimer.** This is an independent community extension, not affiliated with, endorsed by, or supported by Black Forest Labs, Hugging Face, or Modly. The model and its weights are third-party software provided by their respective owners. Each user is responsible for complying with the FLUX license and Acceptable Use Policy and for whatever they generate with the model. The code is provided "as is", without warranty of any kind; use at your own risk.
+
+---
+
 ## Notes
 
 - First run is slower while weights load; later runs in the same session are faster.
-- FLUX.1 Kontext [dev] is released under the **FLUX.1 [dev] Non-Commercial License** — review it for your use case. BFL also recommends output content filtering for any redistribution/deployment.
+- BFL recommends keeping output content filtering or manual review in place for any redistribution/deployment of the model.
 - Lighter alternative worth knowing about: **FLUX.2 [Klein]** is a newer unified generate/edit model that targets ~13GB VRAM. If you want a build around that instead, it slots into the same node structure with a different pipeline.
