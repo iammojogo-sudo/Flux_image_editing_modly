@@ -1,0 +1,75 @@
+{
+  "id": "flux_kontext_dev_edit",
+  "name": "FLUX.1 Kontext [dev] Image Edit",
+  "type": "model",
+  "source": "https://github.com/iammojogo-sudo/flux_kontext_dev_modly",
+  "description": "Instruction-based image editing with Black Forest Labs FLUX.1 Kontext [dev]. Feed one image plus a text instruction (e.g. 'show the back of this object', 'rotate the camera 45 degrees to the left', 'side profile view') and get edited image(s) out. 12B model; runs on consumer GPUs via 4-bit and CPU-offload modes. Gated model — accept the license on HuggingFace and log in first.",
+  "version": "1.0.0",
+  "author": "iammojogo",
+  "vram_gb": 12,
+  "tags": [
+    "image-to-image",
+    "image-editing",
+    "flux",
+    "kontext",
+    "i2i"
+  ],
+  "nodes": [
+    {
+      "id": "edit",
+      "name": "Edit Image",
+      "input": "text",
+      "inputs": ["text"],
+      "output": "image",
+      "hf_repo": "black-forest-labs/FLUX.1-Kontext-dev",
+      "download_check": "model_index.json",
+      "params_schema": [
+        {
+          "id": "memory_mode",
+          "label": "Memory Mode",
+          "type": "select",
+          "default": "auto",
+          "options": [
+            { "value": "auto",      "label": "Auto (pick by VRAM)" },
+            { "value": "low_vram",  "label": "Low VRAM (4-bit, ~10-12GB)" },
+            { "value": "balanced",  "label": "Balanced (bf16 + offload, ~24GB)" },
+            { "value": "max_speed", "label": "Max Speed (bf16 on GPU, ~24GB+)" }
+          ]
+        },
+        {
+          "id": "steps",
+          "label": "Steps",
+          "type": "int",
+          "default": 28,
+          "min": 8,
+          "max": 50
+        },
+        {
+          "id": "guidance_scale",
+          "label": "Guidance Scale",
+          "type": "float",
+          "default": 2.5,
+          "min": 1,
+          "max": 7
+        },
+        {
+          "id": "num_images",
+          "label": "Number of Outputs",
+          "type": "int",
+          "default": 1,
+          "min": 1,
+          "max": 4
+        },
+        {
+          "id": "seed",
+          "label": "Seed",
+          "type": "int",
+          "default": 0,
+          "min": 0,
+          "max": 4294967295
+        }
+      ]
+    }
+  ],
+  "generator_class": "FluxKontextEditGenerator"
+}
