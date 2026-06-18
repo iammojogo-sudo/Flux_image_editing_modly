@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 iammojogo-sudo
+Copyright (c) 2026 iammojogo
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,16 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+NOTE ON THIRD-PARTY MODEL WEIGHTS
+
+This license applies only to the code in this repository. It does not apply to
+the FLUX.1 Kontext [dev] model weights, which this software downloads at runtime
+and does not include or redistribute. Those weights are owned by Black Forest
+Labs and are licensed separately under the FLUX.1 [dev] Non-Commercial License:
+https://huggingface.co/black-forest-labs/FLUX.1-Kontext-dev/blob/main/LICENSE.md
+
+Use of the model is governed by that license and its Acceptable Use Policy, not
+by this MIT License.
